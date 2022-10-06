@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const FeedbackCard = styled.div`
-  width: 500px;
+  width: 600px;
   margin: 15px auto;
-  padding: 25px 15px;
+  padding: 35px 5px;
   border-radius: 10px;
   background-color: lightpink;
   text-align: center;
 `;
 
 export const FeedbackControl = styled.button`
+  font-size: 24px;
   margin: 20px;
   padding: 10px 20px;
   border-radius: 10px;
@@ -24,6 +25,7 @@ export const FeedbackControl = styled.button`
 `;
 
 export const StatList = styled.ul`
+  font-size: 18px;
   display: flex;
   justify-content: center;
   gap: 30px;
