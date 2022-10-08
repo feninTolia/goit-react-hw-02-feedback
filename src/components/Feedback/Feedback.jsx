@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Section from '../Section/Section';
-import Statistics from './Statistics';
+import Statistics from '../Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions';
 
 export default class Feedback extends Component {
@@ -11,22 +11,23 @@ export default class Feedback extends Component {
   };
 
   handleFeedbackBtnClick = evt => {
-    if (evt.target.name === 'goodBtn') {
-      this.setState(state => {
-        return { good: state.good + 1 };
-      });
-    }
+    const { name } = evt.target;
 
-    if (evt.target.name === 'neutralBtn') {
-      this.setState(state => {
-        return { neutral: state.neutral + 1 };
-      });
-    }
+    switch (name) {
+      case 'goodBtn':
+        this.setState(state => ({ good: (state.good += 1) }));
+        break;
 
-    if (evt.target.name === 'badBtn') {
-      this.setState(state => {
-        return { bad: state.bad + 1 };
-      });
+      case 'neutralBtn':
+        this.setState(state => ({ neutral: (state.neutral += 1) }));
+        break;
+
+      case 'badBtn':
+        this.setState(state => ({ bad: (state.bad += 1) }));
+        break;
+
+      default:
+        console.log('Oooops! Sorry something went wrong =(');
     }
   };
 
@@ -40,7 +41,7 @@ export default class Feedback extends Component {
     if (good === 0 && neutral === 0 && bad === 0) {
       return;
     }
-    return Number((good * 100) / (good + neutral + bad)).toFixed(1);
+    return Number((good * 100) / (good + neutral + bad)).toFixed(0);
   };
 
   render() {

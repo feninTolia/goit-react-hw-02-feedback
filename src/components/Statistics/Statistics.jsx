@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { StatList } from './Feedback.styled';
+import { StatList } from '../Feedback/Feedback.styled';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
